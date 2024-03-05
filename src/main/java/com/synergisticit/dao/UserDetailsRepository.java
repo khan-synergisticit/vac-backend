@@ -1,10 +1,9 @@
 package com.synergisticit.dao;
 
-import com.synergisticit.domain.User;
+import com.synergisticit.domain.UserDetails;
 import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
-
 import org.springframework.data.repository.CrudRepository;
 
 @EnableScan
-public interface UserRepository extends CrudRepository<User, String> {
+public interface UserDetailsRepository extends CrudRepository<UserDetails, String> {
 }

@@ -29,10 +29,6 @@ public class UserServiceImpl implements UserService{
         return (List<User>) userRepository.findAll();
     }
 
-    @Override
-    public Boolean deleteByID(Long userID) {
-        return null;
-    }
 
     @Override
     public Boolean deleteByID(String userID) {

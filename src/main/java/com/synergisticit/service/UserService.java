@@ -9,7 +9,5 @@ public interface UserService {
     User save(User user);
     User findById(String userID);
     List<User> findAll();
-    Boolean deleteByID(Long userID);
-
     Boolean deleteByID(String userID);
 }
