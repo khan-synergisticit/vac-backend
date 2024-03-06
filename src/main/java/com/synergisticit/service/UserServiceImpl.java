@@ -33,6 +33,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public Boolean deleteByID(String userID) {
         userRepository.deleteById(userID);
+        return true;
+    }
+
+    @Override
+    public User update(User user) {
         return null;
     }
 }

@@ -9,4 +9,5 @@ public interface UserDetailsService {
     UserDetails findById(String userID);
     List<UserDetails> findAll();
     Boolean deleteByID(String userID);
+    UserDetails update(UserDetails user);
 }

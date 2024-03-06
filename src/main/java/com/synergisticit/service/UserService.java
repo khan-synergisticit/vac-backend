@@ -10,4 +10,5 @@ public interface UserService {
     User findById(String userID);
     List<User> findAll();
     Boolean deleteByID(String userID);
+    User update(User user);
 }

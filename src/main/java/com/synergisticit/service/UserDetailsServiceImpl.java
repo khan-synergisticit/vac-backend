@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService{
@@ -14,21 +15,28 @@ public class UserDetailsServiceImpl implements UserDetailsService{
     UserDetailsRepository userDetailsRepository;
     @Override
     public UserDetails save(UserDetails user) {
-        return null;
+        return userDetailsRepository.save(user);
     }
 
     @Override
     public UserDetails findById(String userID) {
-        return null;
+        Optional<UserDetails> userDetails = userDetailsRepository.findById(userID);
+        return userDetails.orElse(null);
     }
 
     @Override
     public List<UserDetails> findAll() {
-        return null;
+        return (List<UserDetails>) userDetailsRepository.findAll();
     }
 
     @Override
     public Boolean deleteByID(String userID) {
+        userDetailsRepository.deleteById(userID);
+        return true;
+    }
+
+    @Override
+    public UserDetails update(UserDetails user) {
         return null;
     }
 }
