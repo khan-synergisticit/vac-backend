@@ -20,14 +20,15 @@ import lombok.*;
 @DynamoDBTable(tableName = "userDetails")
 public class UserDetails {
 
-    @DynamoDBHashKey
+
+    @DynamoDBHashKey(attributeName = "userID")
     private String userID;
     @NotEmpty
     private String firstName;
     @NotEmpty
     private String lastName;
     private String occupation;
-    private Map<String, String> address;
+    //private Map<String, String> address;
     @NotEmpty
     private String gender;
     private String[] medicalHistory;

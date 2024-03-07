@@ -1,5 +1,6 @@
 package com.synergisticit.controller;
 
+import com.synergisticit.domain.User;
 import com.synergisticit.domain.UserDetails;
 import com.synergisticit.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +20,16 @@ public class UserDetailsController {
     UserDetailsService userDetailsService;
 
     @PostMapping("save")
-    public ResponseEntity<UserDetails> saves(@RequestBody UserDetails userDetails){
+    public ResponseEntity<UserDetails> saveUserDetails(@RequestBody UserDetails userDetails){
         UserDetails savedUser = userDetailsService.save(userDetails);
         return new ResponseEntity<UserDetails>(savedUser, HttpStatus.CREATED);
     }
 
-    @PostMapping("find")
-    public ResponseEntity<?> finds(@RequestBody UserDetails userDetails){
-        if(userDetails.getUserID() != null){
-            UserDetails foundUser = userDetailsService.findById(userDetails.getUserID());
+    @GetMapping("find")
+    public ResponseEntity<?> findUserDetails(@RequestParam String userID){
+
+        if(userID != null){
+            UserDetails foundUser = userDetailsService.findById(userID);
             if(foundUser != null){
                 return new ResponseEntity<UserDetails>(foundUser, HttpStatus.FOUND);
             } else {
@@ -39,12 +41,12 @@ public class UserDetailsController {
     }
 
     @GetMapping("findAll")
-    public ResponseEntity<List<UserDetails>> findAlls(){
+    public ResponseEntity<List<UserDetails>> findAllUserDetails(){
         return new ResponseEntity<List<UserDetails>>(userDetailsService.findAll(), HttpStatus.FOUND);
     }
 
     @PutMapping("update")
-    public ResponseEntity<UserDetails> updates(@RequestBody UserDetails userDetails){
+    public ResponseEntity<UserDetails> updateUserDetails(@RequestBody UserDetails userDetails){
         UserDetails userDetails1 = userDetailsService.update(userDetails);
         return new ResponseEntity<UserDetails>(userDetails1, HttpStatus.OK);
     }
