@@ -19,14 +19,23 @@ public class UserDetailsController {
     UserDetailsService userDetailsService;
 
     @PostMapping("save")
-    public ResponseEntity<UserDetails> savesUser(@RequestBody UserDetails userDetails){
+    public ResponseEntity<UserDetails> saves(@RequestBody UserDetails userDetails){
         UserDetails savedUser = userDetailsService.save(userDetails);
         return new ResponseEntity<UserDetails>(savedUser, HttpStatus.CREATED);
     }
 
     @PostMapping("find")
-    public ResponseEntity<UserDetails> findByID(@RequestBody String userID){
-        return new ResponseEntity<UserDetails>(userDetailsService.findById(userID), HttpStatus.FOUND);
+    public ResponseEntity<?> finds(@RequestBody UserDetails userDetails){
+        if(userDetails.getUserID() != null){
+            UserDetails foundUser = userDetailsService.findById(userDetails.getUserID());
+            if(foundUser != null){
+                return new ResponseEntity<UserDetails>(foundUser, HttpStatus.FOUND);
+            } else {
+                //User savedUser = userService.save(user);
+                return new ResponseEntity<String>("User not found", HttpStatus.NOT_FOUND);            }
+        } else {
+            return null;
+        }
     }
 
     @GetMapping("findAll")
@@ -35,7 +44,7 @@ public class UserDetailsController {
     }
 
     @PutMapping("update")
-    public ResponseEntity<UserDetails> update(@RequestBody UserDetails userDetails){
+    public ResponseEntity<UserDetails> updates(@RequestBody UserDetails userDetails){
         UserDetails userDetails1 = userDetailsService.update(userDetails);
         return new ResponseEntity<UserDetails>(userDetails1, HttpStatus.OK);
     }
