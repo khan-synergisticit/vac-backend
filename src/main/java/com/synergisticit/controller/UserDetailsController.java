@@ -1,5 +1,7 @@
 package com.synergisticit.controller;
 
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.synergisticit.domain.User;
 import com.synergisticit.domain.UserDetails;
 import com.synergisticit.service.UserDetailsService;
@@ -21,6 +23,7 @@ public class UserDetailsController {
 
     @PostMapping("save")
     public ResponseEntity<UserDetails> saveUserDetails(@RequestBody UserDetails userDetails){
+
         UserDetails savedUser = userDetailsService.save(userDetails);
         return new ResponseEntity<UserDetails>(savedUser, HttpStatus.CREATED);
     }
