@@ -48,7 +48,7 @@ public class UserDetailsController {
         return new ResponseEntity<List<UserDetails>>(userDetailsService.findAll(), HttpStatus.FOUND);
     }
 
-    @PutMapping("update")
+    @PostMapping("update")
     public ResponseEntity<UserDetails> updateUserDetails(@RequestBody UserDetails userDetails){
 
         UserDetails userDetails1 = userDetailsService.update(userDetails);
