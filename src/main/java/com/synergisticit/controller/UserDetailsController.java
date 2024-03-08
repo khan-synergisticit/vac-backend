@@ -21,7 +21,7 @@ public class UserDetailsController {
     @Autowired
     UserDetailsService userDetailsService;
 
-    @PostMapping("save")
+    @PutMapping("save")
     public ResponseEntity<UserDetails> saveUserDetails(@RequestBody UserDetails userDetails){
 
         UserDetails savedUser = userDetailsService.save(userDetails);
