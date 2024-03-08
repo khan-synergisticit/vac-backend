@@ -50,7 +50,9 @@ public class UserDetailsController {
 
     @PutMapping("update")
     public ResponseEntity<UserDetails> updateUserDetails(@RequestBody UserDetails userDetails){
+
         UserDetails userDetails1 = userDetailsService.update(userDetails);
+        System.out.println("Update " + userDetails1);
         return new ResponseEntity<UserDetails>(userDetails1, HttpStatus.OK);
     }
 }
