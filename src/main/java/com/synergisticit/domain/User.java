@@ -4,7 +4,6 @@ package com.synergisticit.domain;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 
 @Setter

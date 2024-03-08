@@ -1,18 +1,16 @@
 package com.synergisticit.controller;
 
-
 import com.synergisticit.domain.User;
 
 import com.synergisticit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Optional;
+
 
 @CrossOrigin(origins = "http://54.252.239.111:27016")
 //@CrossOrigin(origins = "http://localhost:27016")

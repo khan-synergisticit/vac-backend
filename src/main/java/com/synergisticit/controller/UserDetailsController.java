@@ -1,8 +1,6 @@
 package com.synergisticit.controller;
 
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.synergisticit.domain.User;
+
 import com.synergisticit.domain.UserDetails;
 import com.synergisticit.service.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,7 +50,6 @@ public class UserDetailsController {
     public ResponseEntity<UserDetails> updateUserDetails(@RequestBody UserDetails userDetails){
 
         UserDetails userDetails1 = userDetailsService.update(userDetails);
-        System.out.println("Update " + userDetails1);
         return new ResponseEntity<UserDetails>(userDetails1, HttpStatus.OK);
     }
 }
