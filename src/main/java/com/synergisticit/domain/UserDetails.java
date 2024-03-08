@@ -34,6 +34,8 @@ public class UserDetails {
     private String state;
     private String zipcode;
     private String gender;
+    private String phone;
+    private String email;
 
 
     @DynamoDBHashKey(attributeName = "userID")
@@ -115,6 +117,22 @@ public class UserDetails {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+    @DynamoDBAttribute(attributeName = "phone")
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    @DynamoDBAttribute(attributeName = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 
