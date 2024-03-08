@@ -37,6 +37,7 @@ public class UserDetailsServiceImpl implements UserDetailsService{
 
     @Override
     public UserDetails update(UserDetails user) {
-        return null;
+
+        return userDetailsRepository.save(user);
     }
 }
