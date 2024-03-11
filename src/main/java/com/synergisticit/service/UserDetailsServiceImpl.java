@@ -3,15 +3,15 @@ package com.synergisticit.service;
 import com.synergisticit.dao.UserDetailsRepository;
 import com.synergisticit.domain.UserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+//import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-@Component
-//@Service
+//@Component
+@Service
 
 public class UserDetailsServiceImpl implements UserDetailsService{
 
