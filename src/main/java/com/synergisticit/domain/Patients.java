@@ -20,24 +20,21 @@ import lombok.*;
 @NoArgsConstructor
 @Data
 //@Document("userDetails")
-@DynamoDBTable(tableName = "userDetails")
-public class UserDetails {
+@DynamoDBTable(tableName = "patients")
 
+public class Patients {
 
-    //@Id
     @DynamoDBHashKey
     private String userId;
     private String firstName;
     private String lastName;
-    private String occupation;
-    private String address1;
-    private String address2;
+    private String address;
     private String city;
     private String state;
     private String zipcode;
     private String gender;
-    private String phone;
     private String email;
+    private String birthDate;
 
 
     @DynamoDBHashKey(attributeName = "userID")
@@ -56,7 +53,7 @@ public class UserDetails {
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-    @DynamoDBAttribute(attributeName = "lastName")
+    @DynamoDBAttribute(attributeName = "lastname")
     public String getLastName() {
         return lastName;
     }
@@ -64,29 +61,14 @@ public class UserDetails {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-    @DynamoDBAttribute(attributeName = "occupation")
-    public String getOccupation() {
-        return occupation;
+
+    @DynamoDBAttribute(attributeName = "address")
+    public String getAddress() {
+        return address;
     }
 
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
-    }
-    @DynamoDBAttribute(attributeName = "address1")
-    public String getAddress1() {
-        return address1;
-    }
-
-    public void setAddress1(String address1) {
-        this.address1 = address1;
-    }
-    @DynamoDBAttribute(attributeName = "address2")
-    public String getAddress2() {
-        return address2;
-    }
-
-    public void setAddress2(String address2) {
-        this.address2 = address2;
+    public void setAddress(String address) {
+        this.address = address;
     }
     @DynamoDBAttribute(attributeName = "city")
     public String getCity() {
@@ -104,7 +86,7 @@ public class UserDetails {
     public void setState(String state) {
         this.state = state;
     }
-    @DynamoDBAttribute(attributeName = "zipcode")
+    @DynamoDBAttribute(attributeName = "zipCode")
     public String getZipcode() {
         return zipcode;
     }
@@ -120,14 +102,7 @@ public class UserDetails {
     public void setGender(String gender) {
         this.gender = gender;
     }
-    @DynamoDBAttribute(attributeName = "phone")
-    public String getPhone() {
-        return phone;
-    }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
     @DynamoDBAttribute(attributeName = "email")
     public String getEmail() {
         return email;
@@ -136,5 +111,13 @@ public class UserDetails {
     public void setEmail(String email) {
         this.email = email;
     }
-}
 
+    @DynamoDBAttribute(attributeName = "birthDate")
+    public String getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(String birthDate) {
+        this.birthDate = birthDate;
+    }
+}
