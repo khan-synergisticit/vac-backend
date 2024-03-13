@@ -27,7 +27,7 @@ public class PatientsController {
 
     @GetMapping("find")
     public ResponseEntity<?> findPatients(@RequestParam String userID){
-
+        System.out.println("USERID FROM JAVA : "+ userID);
         if(userID != null){
             Patients foundUser = patientsService.findById(userID);
             if(foundUser != null){
