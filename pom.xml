@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -12,22 +12,54 @@
 	<artifactId>vaccination-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>vaccination-backend</name>
-	<description>Demo project for Spring Boot</description>
+	<description>capstone project</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
-		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<scope>runtime</scope>
-			<optional>true</optional>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/software.amazon.awssdk/dynamodb -->
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>dynamodb</artifactId>
+			<version>2.25.3</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb -->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.data</groupId>-->
+<!--			<artifactId>spring-data-mongodb</artifactId>-->
+<!--			<version>4.2.3</version>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-mongodb</artifactId>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/com.github.derjust/spring-data-dynamodb -->
+		<dependency>
+			<groupId>com.github.derjust</groupId>
+			<artifactId>spring-data-dynamodb</artifactId>
+			<version>5.1.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator -->
+<!--		<dependency>-->
+<!--			<groupId>org.hibernate.validator</groupId>-->
+<!--			<artifactId>hibernate-validator</artifactId>-->
+<!--			<version>8.0.1.Final</version>-->
+<!--		</dependency>-->
+
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -38,14 +70,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-				<dependency>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-data-rest</artifactId>
-				</dependency>
-				<dependency>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-web</artifactId>
-				</dependency>
 	</dependencies>
 
 	<build>
@@ -66,9 +90,10 @@
 	</build>
 
 </project>
+
 <!--<?xml version="1.0" encoding="UTF-8"?>-->
 <!--<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
-<!--	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+<!--		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">-->
 <!--	<modelVersion>4.0.0</modelVersion>-->
 <!--	<parent>-->
 <!--		<groupId>org.springframework.boot</groupId>-->
@@ -80,54 +105,22 @@
 <!--	<artifactId>vaccination-backend</artifactId>-->
 <!--	<version>0.0.1-SNAPSHOT</version>-->
 <!--	<name>vaccination-backend</name>-->
-<!--	<description>capstone project</description>-->
+<!--	<description>Demo project for Spring Boot</description>-->
 <!--	<properties>-->
 <!--		<java.version>17</java.version>-->
 <!--	</properties>-->
 <!--	<dependencies>-->
-
-<!--&lt;!&ndash;		<dependency>&ndash;&gt;-->
-<!--&lt;!&ndash;			<groupId>org.springframework.boot</groupId>&ndash;&gt;-->
-<!--&lt;!&ndash;			<artifactId>spring-boot-starter-data-jpa</artifactId>&ndash;&gt;-->
-<!--&lt;!&ndash;		</dependency>&ndash;&gt;-->
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-data-rest</artifactId>-->
+<!--			<artifactId>spring-boot-starter-data-mongodb</artifactId>-->
 <!--		</dependency>-->
+
 <!--		<dependency>-->
 <!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-web</artifactId>-->
+<!--			<artifactId>spring-boot-devtools</artifactId>-->
+<!--			<scope>runtime</scope>-->
+<!--			<optional>true</optional>-->
 <!--		</dependency>-->
-<!--		&lt;!&ndash; https://mvnrepository.com/artifact/software.amazon.awssdk/dynamodb &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>software.amazon.awssdk</groupId>-->
-<!--			<artifactId>dynamodb</artifactId>-->
-<!--			<version>2.25.3</version>-->
-<!--		</dependency>-->
-<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb &ndash;&gt;-->
-<!--&lt;!&ndash;		<dependency>&ndash;&gt;-->
-<!--&lt;!&ndash;			<groupId>org.springframework.data</groupId>&ndash;&gt;-->
-<!--&lt;!&ndash;			<artifactId>spring-data-mongodb</artifactId>&ndash;&gt;-->
-<!--&lt;!&ndash;			<version>4.2.3</version>&ndash;&gt;-->
-<!--&lt;!&ndash;		</dependency>&ndash;&gt;-->
-<!--&lt;!&ndash;		<dependency>&ndash;&gt;-->
-<!--&lt;!&ndash;			<groupId>org.springframework.boot</groupId>&ndash;&gt;-->
-<!--&lt;!&ndash;			<artifactId>spring-boot-starter-data-mongodb</artifactId>&ndash;&gt;-->
-<!--&lt;!&ndash;		</dependency>&ndash;&gt;-->
-
-<!--		&lt;!&ndash; https://mvnrepository.com/artifact/com.github.derjust/spring-data-dynamodb &ndash;&gt;-->
-<!--		<dependency>-->
-<!--			<groupId>com.github.derjust</groupId>-->
-<!--			<artifactId>spring-data-dynamodb</artifactId>-->
-<!--			<version>5.1.0</version>-->
-<!--		</dependency>-->
-<!--		&lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate.validator/hibernate-validator &ndash;&gt;-->
-<!--&lt;!&ndash;		<dependency>&ndash;&gt;-->
-<!--&lt;!&ndash;			<groupId>org.hibernate.validator</groupId>&ndash;&gt;-->
-<!--&lt;!&ndash;			<artifactId>hibernate-validator</artifactId>&ndash;&gt;-->
-<!--&lt;!&ndash;			<version>8.0.1.Final</version>&ndash;&gt;-->
-<!--&lt;!&ndash;		</dependency>&ndash;&gt;-->
-
 <!--		<dependency>-->
 <!--			<groupId>org.projectlombok</groupId>-->
 <!--			<artifactId>lombok</artifactId>-->
@@ -137,6 +130,14 @@
 <!--			<groupId>org.springframework.boot</groupId>-->
 <!--			<artifactId>spring-boot-starter-test</artifactId>-->
 <!--			<scope>test</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-data-rest</artifactId>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.springframework.boot</groupId>-->
+<!--			<artifactId>spring-boot-starter-web</artifactId>-->
 <!--		</dependency>-->
 <!--	</dependencies>-->
 
@@ -158,5 +159,3 @@
 <!--	</build>-->
 
 <!--</project>-->
-
-
