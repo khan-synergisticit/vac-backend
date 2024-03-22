@@ -13,7 +13,7 @@ import java.util.List;
 
 
 //@CrossOrigin(origins = "http://54.252.239.111:27016")
-@CrossOrigin(origins = "http://localhost:27016")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = "users")
 
@@ -30,7 +30,7 @@ public class UserController {
         return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
     }
 
-    @PostMapping ("find")
+    @GetMapping ("find")
     public  ResponseEntity<?> findUser(@RequestBody User user){
         if(user.getUserID() != null){
             User foundUser = userService.findById(user.getUserID());
