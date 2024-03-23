@@ -43,4 +43,11 @@ public class UserServiceImpl implements UserService{
     public User update(User user) {
         return null;
     }
+
+    @Override
+    public Boolean exists(String userID) {
+        return userRepository.existsById(userID);
+    }
+
+
 }

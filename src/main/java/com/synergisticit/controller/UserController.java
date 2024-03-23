@@ -30,19 +30,28 @@ public class UserController {
         return new ResponseEntity<User>(savedUser, HttpStatus.CREATED);
     }
 
-    @GetMapping ("find")
-    public  ResponseEntity<?> findUser(@RequestBody User user){
-        if(user.getUserID() != null){
-            User foundUser = userService.findById(user.getUserID());
-            if(foundUser != null){
-                return new ResponseEntity<User>(foundUser, HttpStatus.FOUND);
-            } else {
-                //User savedUser = userService.save(user);
-                return new ResponseEntity<String>("User not found", HttpStatus.NOT_FOUND);            }
-        } else {
-            return null;
+    @GetMapping("find")
+    public ResponseEntity<?> findUser(@RequestParam String userID){
+        if(userService.exists(userID)){
+            User foundUser = userService.findById(userID);
+            return new ResponseEntity<User>(foundUser, HttpStatus.OK);
+        }else{
+            return new ResponseEntity<String>("User not found", HttpStatus.NOT_FOUND);
         }
     }
+//    @PostMapping ("find")
+//    public  ResponseEntity<?> findUser(@RequestBody User user){
+//        if(user.getUserID() != null){
+//            User foundUser = userService.findById(user.getUserID());
+//            if(foundUser != null){
+//                return new ResponseEntity<User>(foundUser, HttpStatus.FOUND);
+//            } else {
+//                //User savedUser = userService.save(user);
+//                return new ResponseEntity<String>("User not found", HttpStatus.NOT_FOUND);            }
+//        } else {
+//            return null;
+//        }
+//    }
     @GetMapping("findAll")
     public  ResponseEntity<List<User>> findAllUsers(){
         return new ResponseEntity<List<User>>(userService.findAll(), HttpStatus.FOUND);
