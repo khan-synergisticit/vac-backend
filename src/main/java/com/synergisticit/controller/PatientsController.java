@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//@CrossOrigin(origins = "http://54.252.239.111:27016")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://54.252.239.111:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 
 @RequestMapping(value = "patients")
