@@ -13,4 +13,5 @@ public interface PatientsService {
     Page<Patients> findAll(Pageable pageable);
     Boolean deleteByID(String userID);
     Patients update(Patients user);
+    long count();
 }

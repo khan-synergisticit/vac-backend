@@ -42,4 +42,9 @@ public class PatientsServiceImpl implements PatientsService{
     public Patients update(Patients user) {
         return patientsRepository.save(user);
     }
+
+    @Override
+    public long count() {
+        return patientsRepository.count();
+    }
 }

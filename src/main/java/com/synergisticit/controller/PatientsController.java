@@ -12,10 +12,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.HashMap;
 import java.util.List;
 
-//@CrossOrigin(origins = "http://54.252.239.111:3000")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://54.252.239.111:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 
 @RequestMapping(value = "patients")
@@ -46,13 +47,22 @@ public class PatientsController {
     }
 
     @GetMapping("findAll")
-    public ResponseEntity<List<Patients>> findAllPatients(@RequestParam int pageNo, @RequestParam int pageSize){
+    public ResponseEntity<HashMap<String, Object>> findAllPatients(@RequestParam int pageNo, @RequestParam int pageSize){
+
         Pageable pageable = PageRequest.of(pageNo, pageSize);
         Page<Patients> pagedPatients = patientsService.findAll(pageable);
         List<Patients> patients = pagedPatients.getContent();
-        return new ResponseEntity<List<Patients>>(patients, HttpStatus.FOUND);
+        HashMap<String, Object> hmap = new HashMap<String, Object>();
+        hmap.put("count", patientsService.count());
+        hmap.put("patients", patients);
+
+        return new ResponseEntity<HashMap<String, Object>>(hmap, HttpStatus.FOUND);
     }
 
+    @GetMapping("count")
+    public ResponseEntity<Long> getCount(){
+        return new ResponseEntity<Long>(patientsService.count(), HttpStatus.OK);
+    }
     @PostMapping("update")
     public ResponseEntity<Patients> updatePatients(@RequestBody Patients Patients){
 
