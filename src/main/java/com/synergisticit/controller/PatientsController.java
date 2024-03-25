@@ -3,14 +3,19 @@ package com.synergisticit.controller;
 import com.synergisticit.domain.Patients;
 import com.synergisticit.service.PatientsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 import java.util.List;
 
-@CrossOrigin(origins = "http://54.252.239.111:3000")
-//@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://54.252.239.111:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 
 @RequestMapping(value = "patients")
@@ -41,8 +46,11 @@ public class PatientsController {
     }
 
     @GetMapping("findAll")
-    public ResponseEntity<List<Patients>> findAllPatients(){
-        return new ResponseEntity<List<Patients>>(patientsService.findAll(), HttpStatus.FOUND);
+    public ResponseEntity<List<Patients>> findAllPatients(@RequestParam int pageNo, @RequestParam int pageSize){
+        Pageable pageable = PageRequest.of(pageNo, pageSize);
+        Page<Patients> pagedPatients = patientsService.findAll(pageable);
+        List<Patients> patients = pagedPatients.getContent();
+        return new ResponseEntity<List<Patients>>(patients, HttpStatus.FOUND);
     }
 
     @PostMapping("update")

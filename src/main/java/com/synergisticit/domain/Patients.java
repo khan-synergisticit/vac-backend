@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 
@@ -19,19 +17,18 @@ import java.util.Date;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Document("patients")
 
 
 public class Patients {
-
+    @Id
     private String userID;
     private String firstName;
     private String lastName;
     private String address;
     private String city;
     private String state;
-    private String zipcode;
+    private int zipcode;
     private String gender;
     private String email;
     private Date birthDate;

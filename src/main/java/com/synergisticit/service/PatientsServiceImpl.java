@@ -3,6 +3,8 @@ package com.synergisticit.service;
 import com.synergisticit.dao.PatientsRepository;
 import com.synergisticit.domain.Patients;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,8 +28,8 @@ public class PatientsServiceImpl implements PatientsService{
     }
 
     @Override
-    public List<Patients> findAll() {
-        return (List<Patients>) patientsRepository.findAll();
+    public Page<Patients> findAll(Pageable pageable) {
+        return (Page<Patients>) patientsRepository.findAll(pageable);
     }
 
     @Override
