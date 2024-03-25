@@ -1,24 +1,19 @@
 package com.synergisticit.domain;
 
-
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import lombok.*;
 import org.springframework.data.annotation.Id;
-//import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-//@ToString
-@DynamoDBTable(tableName = "users")
-//@Document( "user")
+@Data
+
+@Document( "users")
 public class User {
-    //@Id
-    @DynamoDBHashKey
+    @Id
     private String userID;
 
     private String userName;
